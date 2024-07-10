@@ -1,0 +1,18 @@
+2021  docker compose up flyway
+ 2022  docker ps
+ 2023  docker exec -it 27dde48ba4fd /bin/bash
+ 2024  clear
+ 2025  ls
+ 2026  docker-compose up flyway-migrate
+ 2027  docker compose up flyway-migrate
+ 2028  docker compose up flyway
+ 2029  clear
+ 2030  docker ps
+ 2031  docker exec -it 27dde48ba4fd /bin/bash
+ 2032  docker compose up flyway
+ 2033  docker exec -it 27dde48ba4fd /bin/bash
+ 2034  clear
+ 2035  docker compose up flyway-migrate
+ 2036  docker exec -it 27dde48ba4fd /bin/bash
+ 2037  clear
+ 2038  history

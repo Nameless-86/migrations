@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=asd1234
+      - POSTGRES_DB=mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+     - postgres_data:/var/lib/postgresql/data
+
+  flyway:
+    image: flyway/flyway:latest
+    command: -url=jdbc:postgresql://postgres:5432/mydatabase -user=root -password=asd1234 baseline -baselineVersion=1
+    volumes:
+      - ./sql:/flyway/sql
+    depends_on:
+      - postgres
+
+  flyway-migrate:
+    image: flyway/flyway:latest
+    command: -url=jdbc:postgresql://postgres:5432/mydatabase -user=root -password=asd1234 migrate
+    volumes:
+      - ./sql:/flyway/sql
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
