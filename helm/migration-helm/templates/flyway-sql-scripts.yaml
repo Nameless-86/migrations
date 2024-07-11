@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "migration-helm.fullname" . }}-flyway-scripts
+data:
+  V2__create_example_table.sql: |
+    CREATE TABLE example_table (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100)
+    );
+

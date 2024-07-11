@@ -1,0 +1,12 @@
+postgresql:
+  enabled: true
+  fullnameOverride: "my-postgresql"
+  auth:
+    enablePostgresUser: true
+    host: my-postgresql
+    database: mydatabase
+    username: root
+    password: asd123
+  service:
+    type: ClusterIP
+    port: 5432
